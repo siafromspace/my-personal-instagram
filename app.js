@@ -1,6 +1,7 @@
 import bio from './modules/bio.js'
 import gallery from './modules/gallery.js'
 import nav from './modules/nav.js'
+import { request } from './database.js'
 
 const app = () => {
     return `
