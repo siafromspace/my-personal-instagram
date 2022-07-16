@@ -12,3 +12,12 @@ const app = () => {
     `
 }
 document.getElementById('root').innerHTML = app()
+
+const editBioForm = document.querySelector('.edit-bio')
+
+editBioForm.addEventListener('submit', () => {
+    event.preventDefault()
+    const nameInput = document.getElementById('name').value
+    const nameOutput = document.querySelector('.name')
+    nameOutput.textContent = nameInput
+})
