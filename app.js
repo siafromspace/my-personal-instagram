@@ -1,24 +1,22 @@
 import bio from './modules/bio.js'
 import gallery from './modules/gallery.js'
 import nav from './modules/nav.js'
-import { request } from './database.js'
+import { request, addEntryToDb, getEntryFromDb } from './database.js'
+import { bioEventListeners, galleryEventListeners } from './events.js'
 
-const app = () => {
+const app = async () => {
     return `
     ${nav()}
     <div class="container">
-        ${bio()}
+        ${await bio()}
         ${gallery()}
     </div>
     `
 }
-document.getElementById('root').innerHTML = app()
 
-const editBioForm = document.querySelector('.edit-bio')
-
-editBioForm.addEventListener('submit', () => {
-    event.preventDefault()
-    const nameInput = document.getElementById('name').value
-    const nameOutput = document.querySelector('.name')
-    nameOutput.textContent = nameInput
-})
+request.onsuccess = async () => {
+    document.getElementById('root').innerHTML = await app()
+    bioEventListeners()
+    galleryEventListeners()
+    // getEntryFromDb('bio')
+}
