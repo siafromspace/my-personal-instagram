@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #FAFAFA;
+}
+nav {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: #FFF;
+    height: 3.3em;
+    line-height: 3.3em;
+    padding: 0 13.5em;
+    border-bottom: 0.1px solid #DBDBDB;
+}
+.logo {
+    text-decoration: none;
+}
+.logo > img {
+    vertical-align: middle;
+}
+.search {
+    background-color: #FAFAFA;
+    margin-left: 19em;
+    height: 2.4em;
+    width: 15.5em;
+    border: 1px solid #DBDBDB;
+    border-radius: 5px;
+    align-self: center;
+}
+.search::placeholder {
+    color: #808080;
+    text-align: center;
+}
+.nav-links {
+    margin-left: 8em;
+    gap: 1em;
+}
+.nav-links a {
+    margin-left: 2em;
+}
+.nav-links i {
+    transform: scale(1.6);
+    color: #252525;
+    vertical-align: middle;
+}
+.container {
+    padding: 0 15%;
+}
+.bio {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-content: center;
+    height: 15em;
+    padding: 2em 0 0 5em;
+    border-bottom: 0.5px solid #DBDBDB;
+}
+.profile-photo {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+}
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: 1em;
+}
+.profile-info .name {
+    font-size: 1.7em;
+    color: #545454;
+}
+.profile-info button {
+    background-color: #0095f6;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    width: 5em;
+    height: 2em;
+    cursor: pointer;
+}
+#addPhotoInput {
+    display: none;
+}
+.add-photo {
+    transform: scale(3);
+    position: fixed;
+    bottom: 5em;
+    right: 7em;
+    cursor: pointer;
+}
+.gallery-nav {
+    height: 3.5em;
+}
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em;
+    justify-items: center;
+    margin-bottom: 8em;
+}
+.item {
+    height: 18em;
+    width: 18em;
+    background: #000;
+}
+.item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item > img:hover {
+    opacity: 0.7;
+}
+@media (max-width: 1338px) {
+    nav {
+        padding: 0 8em;
+    }
+    .container {
+        padding: 0 10%;
+    }
+    .bio {
+        gap: 2em;
+    }
+}
+@media (max-width: 1168px) {
+    nav {
+        padding: 0 1em;
+    }
+    .container {
+        padding: 0 2%;
+    }
+}
+@media (max-width: 969px) {
+    .search {
+        margin-left: 14em;
+    }
+    .nav-links {
+        margin-left: 5em;
+    }
+    .container {
+        padding: 0 2%;
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+        height: 20em;
+        width: 20em;
+    }
+    .add-photo {
+        right: 3em;
+    }
+}
+@media (max-width: 969px) {
+    .search {
+        margin-left: 7em;
+    }
+    .nav-links {
+        margin-left: 3em;
+    }
+    .container {
+        padding: 0 2%;
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+        height: 20em;
+        width: 20em;
+}
+}
+@media (max-width: 698px) {
+    .search {
+        display: none;
+    }
+    .nav-links {
+        display: none;
+    }
+    .container {
+        padding: 0 2%;
+    }
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .item {
+        height: 18em;
+        width: 18em;
+}
+}
+@media (max-width: 578px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+    .item {
+        height: 20em;
+        width: 20em;
+    }
+    .bio {
+        padding: 2em 1em 0 1em;
+    }
+}
