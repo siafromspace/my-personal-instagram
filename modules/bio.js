@@ -11,6 +11,9 @@ const bio = async () => {
         <input type="file" name="photo" id="addProfilePhoto">
         <label for="addProfilePhoto">
             <img src="${profileLength === 0 ? '../profile-default.jpg' : profilePhoto}" alt="profile-photo" id="profile-photo-img">
+            <div class="overlay">
+                <i class="fa-solid fa-camera"></i>
+            </div>
         </label>
     </div>
     <div class="profile-info">
