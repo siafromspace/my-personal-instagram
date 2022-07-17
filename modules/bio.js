@@ -3,13 +3,14 @@ import { getEntryFromDb } from "../database.js"
 const bio = async () => {
     const userInfo = await getEntryFromDb('bio')
     const profilePhoto = await getEntryFromDb('profile')
+    let profileLength = profilePhoto.length
+    console.log(profileLength)
     return `
 <section class="bio">
     <div class="profile-photo">
         <input type="file" name="photo" id="addProfilePhoto">
         <label for="addProfilePhoto">
-            <img src="${profilePhoto}"
-                alt="profile-photo" id="profile-photo-img">
+            <img src="${profileLength === 0 ? '../profile-default.jpg' : profilePhoto}" alt="profile-photo" id="profile-photo-img">
         </label>
     </div>
     <div class="profile-info">

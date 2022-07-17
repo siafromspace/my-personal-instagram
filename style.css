@@ -67,6 +67,8 @@ nav {
     width: 10em;
     height: 10em;
     border-radius: 50%;
+    cursor: pointer;
+    background-color: black;
 }
 .profile-photo label {
     width: 100%;
@@ -79,6 +81,10 @@ nav {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    cursor: pointer;
+}
+.profile-photo img:hover {
+    opacity: 0.7;
 }
 .profile {
     display: flex;
