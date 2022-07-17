@@ -9,6 +9,7 @@ request.onupgradeneeded = () => {
     const database = request.result
     database.createObjectStore('bio', { autoIncrement: true })
     database.createObjectStore('gallery', { autoIncrement: true })
+    database.createObjectStore('profile', { autoIncrement: true })
 }
 
 request.onerror = () => {
@@ -38,7 +39,7 @@ const getEntryFromDb = async (storeName, id) => {
         const requestData = id ? store.get(id) : store.getAll()
 
         requestData.onsuccess = () => {
-            console.log('success', requestData.result)
+            // console.log('success', requestData.result)
             resolve(requestData.result)
         }
         requestData.onerror = () => {

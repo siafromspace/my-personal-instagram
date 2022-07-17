@@ -40,8 +40,51 @@ const bioEventListeners = () => {
 const galleryEventListeners = () => {
     const photoInput = document.getElementById('addPhotoInput')
     photoInput.addEventListener('change', () => {
-        console.log(photoInput.files)
+        console.log(photoInput.files[0])
+        const reader = new FileReader()
+        reader.readAsDataURL(photoInput.files[0])
+
+        reader.addEventListener('load', () => {
+            addEntryToDb('gallery', reader.result)
+            getEntryFromDb('gallery')
+            // console.log(reader.result)
+            const gallerySection = document.querySelector('.gallery')
+            const newPhoto = `
+            <a href="#" class="item">
+                <img src="${reader.result}" alt="">
+            </a>`
+            gallerySection.insertAdjacentHTML('beforeend', newPhoto)
+        })
     })
 }
 
-export { bioEventListeners, galleryEventListeners }
+const addImagesToGallery = async () => {
+    const gallerySection = document.querySelector('.gallery')
+    const galleryData = await getEntryFromDb('gallery')
+    const galleryItems = galleryData.map(singlePhoto => {
+        return `
+            <a href="#" class="item">
+                <img src="${singlePhoto}" alt="">
+            </a>`
+    })
+    gallerySection.style.display = 'grid'
+    gallerySection.innerHTML = galleryItems.join('')
+}
+
+const addProfilePhotoEventListeners = () => {
+    const profileInput = document.getElementById('addProfilePhoto')
+    profileInput.addEventListener('change', () => {
+        const reader = new FileReader()
+        reader.readAsDataURL(profileInput.files[0])
+
+        reader.addEventListener('load', () => {
+            clearAllEntries('profile')
+            addEntryToDb('profile', reader.result)
+
+            const profileImg = document.getElementById('profile-photo-img')
+            profileImg.setAttribute('src', `${reader.result}`)
+        })
+    })
+}
+
+export { bioEventListeners, galleryEventListeners, addImagesToGallery, addProfilePhotoEventListeners }

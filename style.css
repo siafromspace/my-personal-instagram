@@ -58,10 +58,21 @@ nav {
     padding: 2em 0 0 5em;
     border-bottom: 0.5px solid #DBDBDB;
 }
+#addProfilePhoto {
+    display: none;
+    width: 0;
+    height: 0;
+}
 .profile-photo {
     width: 10em;
     height: 10em;
     border-radius: 50%;
+}
+.profile-photo label {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover;
+    border-radius: 50%; */
 }
 .profile-photo img {
     width: 100%;
@@ -153,11 +164,14 @@ nav {
     height: 3.5em;
 }
 .gallery {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: repeat(3, 1fr);
     gap: 2em;
     justify-items: center;
     margin-bottom: 8em;
+}
+.gallery-loader {
+    text-align: center;
 }
 .item {
     height: 18em;
@@ -172,6 +186,7 @@ nav {
 .item > img:hover {
     opacity: 0.7;
 }
+
 @media (max-width: 1338px) {
     nav {
         padding: 0 8em;
