@@ -68,7 +68,7 @@ nav {
     height: 10em;
     border-radius: 50%;
     cursor: pointer;
-    background-color: black;
+    border: none;
     position: relative;
 }
 .profile-photo label {
